@@ -6,4 +6,5 @@ loader
 *.a
 *.ll
 
+!loader/
 _tmp/
