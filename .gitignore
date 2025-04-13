@@ -5,6 +5,7 @@ loader
 *.o
 *.a
 *.ll
+nohup.*
 
 !loader/
 _tmp/

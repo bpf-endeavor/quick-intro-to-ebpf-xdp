@@ -2,6 +2,67 @@
 Quick Introduction to eBPF: Info needed during hands-on session
 ###############################################################
 
+.. footer::
+   ###Page###
+
+Preparing Experiment Environment
+================================
+
+Install a Virtual Machine
+-------------------------
+If you want to follow the option to use a virtual
+machine with pre-installed dependencies read here. The
+virtual machines are prepared by Sebastiano Miano for
+the Network Computing coures (2024/2025 DEIB
+Politecnico di Milano).
+
+You can download the VirtualBox nc-labs-x86.ova image at the following URL:
+https://networkcomputingpolimi.page.link/labs
+Before deploying the VM, you must install VirtualBox, compatible with Windows, Linux,
+and macOS. Download the VirtualBox binaries at the following URL:
+https://www.virtualbox.org/wiki/Downloads
+Once installed, open the nc-labs-x86.ova file to boot the VM and access the lab
+environment.
+
+
+Required Packages
+-----------------
+If you have a Linux system and want to run test locally install the following packages:
+
+* clang (v15)
+* libelf
+* libbpf (v1.0+)
+* bpftool
+
+**Install Dependencies On Ubuntu 22.04:**
+
+> Also look at ``./scripts/install_req.sh``
+
+.. code:: sh
+
+    # General stuff
+    sudo apt update
+    sudo apt install -y gcc-multilib build-essential libelf-dev linux-tools-`uname -r`
+    # LLVM/Clang v15
+    wget https://apt.llvm.org/llvm.sh
+    sudo bash ./llvm.sh 15
+    # Libbpf
+    # install a prebuilt version (v1.0 or more) or follow the instructions at
+    # https://github.com/libbpf/libbpf
+
+Remote Virtual Machine
+----------------------
+There a few virtual machine that you can use for the
+purpose of following the class. You can connect to them with ``ssh``.
+
+On the server you can either use vim/nano/... to write the codes, or
+check the *VS Code* remote development guide if you want to use it as an editor
+https://code.visualstudio.com/docs/remote/ssh
+
+.. raw:: pdf
+
+   PageBreak
+
 First eBPF Program
 ==================
 
@@ -133,18 +194,3 @@ Using IPROUTE2 To Load XDP Programs
             sleep 5
     done
 
-
-Install Dependencies On Ubuntu 22.04
-====================================
-
-.. code:: sh
-
-    # General stuff
-    sudo apt update
-    sudo apt install -y gcc-multilib build-essential libelf-dev linux-tools-`uname -r`
-    # LLVM/Clang v15
-    wget https://apt.llvm.org/llvm.sh
-    sudo bash ./llvm.sh 15
-    # Libbpf
-    # install a prebuilt version of follow the instructions at
-    # https://github.com/libbpf/libbpf

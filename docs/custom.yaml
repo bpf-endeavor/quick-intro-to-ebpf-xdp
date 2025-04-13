@@ -1,0 +1,18 @@
+pageSetup:
+  size: A4
+styles:
+  normal:
+    fontName: "DejaVu Sans"
+    fontSize: 12
+  bullet-list:
+    spaceBefore: 8
+    spaceAfter: 8
+  heading1:
+    fontName: "DejaVu Sans Bold"
+    spaceBefore: 24
+    spaceAfter: 24
+  heading2:
+    fontName: "DejaVu Sans"
+    spaceBefore: 18
+    spaceAfter: 18
+
