@@ -28,4 +28,4 @@ sudo ldconfig
 
 # install bpftool
 sudo apt update
-sudo apt install -y bpftool
+sudo apt install -y linux-tools-`uname -r`
