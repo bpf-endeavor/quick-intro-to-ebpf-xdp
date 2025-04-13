@@ -5,6 +5,9 @@ curdir=$(dirname $0)
 mkdir _tmp/
 cd _tmp/
 
+sudo apt update
+sudo apt install -y gcc-multilib build-essential libelf-dev libdw-dev pkg-config python3-pyelftools
+
 # install llvm/clang
 wget https://apt.llvm.org/llvm.sh
 chmod +x llvm.sh
@@ -27,5 +30,4 @@ echo 'export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:/lib64/pkgconfig/"' | tee -a $HOM
 sudo ldconfig
 
 # install bpftool
-sudo apt update
 sudo apt install -y linux-tools-`uname -r`

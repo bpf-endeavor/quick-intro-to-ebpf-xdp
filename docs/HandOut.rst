@@ -1,3 +1,7 @@
+###############################################################
+Quick Introduction to eBPF: Info needed during hands-on session
+###############################################################
+
 First eBPF Program
 ==================
 
@@ -68,7 +72,7 @@ First Time Running eBPF Program
 
 .. code:: sh
 
-    clang -g -O2 -o ./loader ./loader.c -lbpf
+    clang -g -O2 -o ./loader ./loader.c -lbpf -lelf
 
 
 **Reading BPF Trace Logs:**
@@ -129,3 +133,18 @@ Using IPROUTE2 To Load XDP Programs
             sleep 5
     done
 
+
+Install Dependencies On Ubuntu 22.04
+====================================
+
+.. code:: sh
+
+    # General stuff
+    sudo apt update
+    sudo apt install -y gcc-multilib build-essential libelf-dev linux-tools-`uname -r`
+    # LLVM/Clang v15
+    wget https://apt.llvm.org/llvm.sh
+    sudo bash ./llvm.sh 15
+    # Libbpf
+    # install a prebuilt version of follow the instructions at
+    # https://github.com/libbpf/libbpf

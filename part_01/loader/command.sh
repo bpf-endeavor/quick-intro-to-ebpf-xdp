@@ -1,1 +1,1 @@
-clang -g -O2 -o ./loader ./loader.c -lbpf
+clang -g -O2 -o ./loader ./loader.c -lbpf -lelf
