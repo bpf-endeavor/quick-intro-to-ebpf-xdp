@@ -5,3 +5,5 @@ loader
 *.o
 *.a
 *.ll
+
+_tmp/
