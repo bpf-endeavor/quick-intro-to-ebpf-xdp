@@ -142,22 +142,6 @@ First Time Running eBPF Program
 
     sudo cat /sys/kernel/tracing/trace_pipe
 
-
-BPFTOOL
-=======
-
-**Listing attached eBPF Networking Programs:**
-
-.. code:: sh
-
-    sudo bpftool net
-
-**Listing Loaded eBPF Programs**
-
-.. code:: sh
-
-    sudo bpftool prog
-
 Generating Packets
 ==================
 
@@ -194,3 +178,47 @@ Using IPROUTE2 To Load XDP Programs
             sleep 5
     done
 
+
+Defining an eBPF MAP
+====================
+
+.. code:: c++
+
+    struct {
+        __uint(type, BPF_MAP_TYPE_HASH);
+        __type(key, struct key);
+        __type(value, struct value);
+        __uint(max_entries, 16);
+    } table SEC(".maps");
+
+**MAP Types:**
+
+* BPF_MAP_TYPE_ARRAY
+* BPF_MAP_TYPE_HASH
+* BPF_MAP_TYPE_LRU_HASH
+
+
+BPFTOOL
+=======
+
+**Listing attached eBPF Networking Programs:**
+
+.. code:: sh
+
+    sudo bpftool net
+
+**Listing Loaded eBPF Programs:**
+
+.. code:: sh
+
+    sudo bpftool prog
+
+.. ::
+   **Accessing Maps:**
+
+    .. code:: sh
+
+       sudo bpftool map # list all ebpf maps
+       sudo bpftool map dump (name NAME | id ID)
+       sudo bpftool map lookup name NAME key 0xfirst byte 0xsecond byte ...
+       sudo bpftool map update name NAME key ... value ...
